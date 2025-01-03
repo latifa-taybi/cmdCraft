@@ -3,6 +3,10 @@ require_once './config/config.php';
 
 $db = new Database();
 $pdo = $db->getConn();
+if(isset($_GET['msg'])){
+    echo "<script>alert('L\'email ou le mot de passe est incorrecte');</script>";
+}
+
 
 ?>
 
@@ -149,13 +153,3 @@ $pdo = $db->getConn();
 
 </body>
 </html>
-<!----------------------------- Form box ----------------------------------->    
-
-    
-    <!------------------- login form -------------------------->
-
-    
-
-    <!------------------- registration form -------------------------->
-    
-
