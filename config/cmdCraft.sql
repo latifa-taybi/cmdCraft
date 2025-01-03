@@ -7,7 +7,7 @@ CREATE TABLE users(
     email varchar(50),
     mot_de_passe varchar(50),
     role ENUM('client', 'admin') NOT NULL,
-    is_active boolean DEFAULT 1;
+    is_active boolean DEFAULT 1
 );
 
 CREATE TABLE product(
