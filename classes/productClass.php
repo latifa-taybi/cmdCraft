@@ -69,6 +69,12 @@ class product {
         ]);
     }
 
-
+    public function delete($id)
+    {
+        $stmt = $this->pdo->prepare("DELETE FROM product WHERE id_product = :id_product");
+        $stmt->execute([
+            ':id_product' => $id
+        ]);
+    }    
 }
 ?>
