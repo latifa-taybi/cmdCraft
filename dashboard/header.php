@@ -84,7 +84,7 @@
                     <div class="user">
                         <div class="bg-img" style="background-image: url(img/1.jpeg)"></div>
                         <span class="las la-power-off"></span>
-                        <span>Logout</span>
+                        <a href="../auth/logout.php">Logout</a>
                     </div>
                 </div>
             </div>

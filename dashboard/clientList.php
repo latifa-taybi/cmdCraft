@@ -3,10 +3,29 @@ include './header.php';
 require_once '../config/config.php';
 include '../classes/userClass.php';
 
+session_start();
+
+
 $db = new Database();
 $pdo = $db->getConn();
 
 $user = new User($pdo);
+
+if (!isset($_SESSION["user_email"])) {
+    header("location:../index.php");
+}
+
+$email = $_SESSION["user_email"];
+
+$sql = "SELECT * from users where email = :email";
+$stmt = $pdo->prepare($sql);
+$stmt->execute([':email' => $email]);
+$users = $stmt->fetch();
+
+if (!$users || $users['role'] != 'admin') {
+    header("location:../index.php");
+}
+
 ?>
 
 <style>

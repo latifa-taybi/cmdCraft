@@ -7,7 +7,7 @@ class product {
     }
 
     public function getProduct(){
-        $stmt = $this->pdo->prepare("SELECT * FROM product");
+        $stmt = $this->pdo->prepare("SELECT id_product, name, description, prix, quantite, image FROM product WHERE deleted=0");
         $stmt->execute();
         return $stmt->fetchAll();
     }
@@ -17,7 +17,7 @@ class product {
         $stmt->execute([
             'id_product'=>$id
         ]);
-        return $stmt->fetchAll();
+        return $stmt->fetch();
     }
 
     public function diplayProduct(){
@@ -46,7 +46,7 @@ class product {
                         <h4>$product[quantite]</h4>
                     </td>
                     <td>
-                        <a class='edit' href='#'>
+                        <a class='edit' href='../dashboard/editProduct.php?id={$product['id_product']}'>
                             <span style='color:rgb(53, 250, 105);' class='las la-edit'></span>
                         </a>   
                         <a class='delete' href='../productManager/deleteProduct.php?id={$product['id_product']}'>
@@ -71,7 +71,7 @@ class product {
 
     public function delete($id)
     {
-        $stmt = $this->pdo->prepare("DELETE FROM product WHERE id_product = :id_product");
+        $stmt = $this->pdo->prepare("UPDATE product SET deleted=1 WHERE id_product = :id_product");
         $stmt->execute([
             ':id_product' => $id
         ]);

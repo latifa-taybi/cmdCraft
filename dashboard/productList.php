@@ -7,6 +7,7 @@ $db = new Database();
 $pdo = $db->getConn();
 
 $product = new product($pdo);
+
 ?>
 
 <div class="records table-responsive">
@@ -49,7 +50,7 @@ $product = new product($pdo);
         <span class="close-btn" id="closePopupBtn">&times;</span>
         <h2>Add Product</h2>
         <form action="../productManager/addProduct.php" method="POST" enctype="multipart/form-data">
-            <input type="hidden" id="productId" name="productId" value="<?php echo "if(isset([$]))"?>">
+            <input type="hidden" id="productId" name="productId">
 
             <label for="productName">Name:</label>
             <input type="text" id="productName" name="productName" required>
@@ -66,16 +67,12 @@ $product = new product($pdo);
             <label for="productImage">Image:</label>
             <input type="url" id="productImage" name="productImage" required>
 
-            <button type="submit" id="editProduct" name="editProduct">Edit Product</button>
             <button type="submit" id="addProduct" name="addProduct">Add Product</button>
         </form>
     </div>
 </div>
 
 <style>
-    #editProduct{
-        display:none;
-    }
 
     .popup {
         display: none;
@@ -140,19 +137,26 @@ $product = new product($pdo);
     const edit = document.querySelector(".edit");
     const addProduct = document.getElementById("addProduct");
     const editProduct = document.getElementById("editProduct");
+    const inputId = document.getElementById("productId");
+    const inputName = document.getElementById("productName");
+    const inputDescription = document.getElementById("productDescription");
+    const inputPrice = document.getElementById("productPrice");
+    const inputQuantity = document.getElementById("productQuantity");
+    const inputImage = document.getElementById("productImage");
+
+    console.log("test");
 
     addProductBtn.onclick = function() {
         popup.style.display = "flex";
     };
 
-    edit.onclick = function() {
-        popup.style.display = "flex";
-        addProduct.style.display = "none";
-        editProduct.style.display = "block";
-
-    };
-
-
+    // edit.onclick = function() {
+    //     popup.style.display = "flex";
+    //     addProduct.style.display = "none";
+    //     editProduct.style.display = "block";
+    //     console.log("latifa");
+        
+    // };
 
     closePopupBtn.onclick = function() {
         popup.style.display = "none";
@@ -162,6 +166,18 @@ $product = new product($pdo);
         if (event.target == popup) {
             popup.style.display = "none";
         }
+    };
+
+    const  openpopup = (id, name, description, prix, quantite, image) => {
+        popup.style.display = "flex";
+        addProduct.style.display = "none";
+        editProduct.style.display = "block";
+        inputId.value = id;
+        inputName.value = name;
+        inputDescription.value = description;
+        inputPrice.value = prix;
+        inputQuantity.value = quantite;
+        inputImage.value = image;
     };
 </script>
 
