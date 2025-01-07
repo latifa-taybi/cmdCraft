@@ -1,6 +1,8 @@
 <?php
 require_once '../config/config.php';
 include './header.php';
+include '../classes/userClass.php';
+include '../classes/productClass.php';
 
 session_start();
 // session_unset();
@@ -21,6 +23,12 @@ if (!$user || $user['role'] != 'admin') {
     header("location:../index.php");
 }
 
+$users = new User($pdo);
+$client = $users->countClient();
+
+$product = new product($pdo);
+$produit = $product->countProduct();
+
 ?>
             
             <div class="page-content">
@@ -29,7 +37,7 @@ if (!$user || $user['role'] != 'admin') {
 
                     <div class="card">
                         <div class="card-head">
-                            <h2>11</h2>
+                            <h2><?php echo $client ?></h2>
                             <span class="las la-user-friends"></span>
                         </div>
                         <div class="card-progress">
@@ -42,7 +50,7 @@ if (!$user || $user['role'] != 'admin') {
 
                     <div class="card">
                         <div class="card-head">
-                            <h2>10</h2>
+                            <h2><?php echo $produit ?></h2>
                             <span class="las la-eye"></span>
                         </div>
                         <div class="card-progress">
@@ -65,20 +73,6 @@ if (!$user || $user['role'] != 'admin') {
                             </div>
                         </div>
                     </div>
-
-                    <div class="card">
-                        <div class="card-head">
-                            <h2>47,500</h2>
-                            <span class="las la-envelope"></span>
-                        </div>
-                        <div class="card-progress">
-                            <small>New E-mails received</small>
-                            <div class="card-indicator">
-                                <div class="indicator four" style="width: 90%"></div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
 
                 <!-- Chart for Orders per Month -->

@@ -76,5 +76,12 @@ class product {
             ':id_product' => $id
         ]);
     }    
+
+    public function countProduct(){
+        $stmt = $this->pdo->prepare("SELECT COUNT(*) AS total_produit FROM product WHERE deleted=0");
+        $stmt->execute();
+        $result = $stmt->fetch();
+        return $result['total_produit'];
+    }
 }
 ?>

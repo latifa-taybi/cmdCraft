@@ -72,11 +72,9 @@ if (!$users || $users['role'] != 'admin') {
             </thead>
             <tbody>
                 <?php
-                $user->displayUsers();
+                    $user->displayUsers();
                 ?>
-
             </tbody>
         </table>
     </div>
-
 </div>

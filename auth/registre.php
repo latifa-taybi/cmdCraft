@@ -17,9 +17,9 @@ if(isset($_POST['registre'])){
         ':email'=>$email,
         ':mot_de_passe'=>$password_hashe
     ])){
-        echo 'true';
+        header('location:../index.php');
     }else{
-        echo 'false';
+        header('location:../index.php');
     }
 }
 ?>

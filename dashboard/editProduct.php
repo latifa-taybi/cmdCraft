@@ -11,6 +11,7 @@ if ($productEdit) {
     echo $productEdit['id_product'];
     echo $productEdit['description']; 
 }
+
 ?>
 
 <main>

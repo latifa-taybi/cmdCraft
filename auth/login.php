@@ -22,7 +22,7 @@ if (isset($_POST['login'])) {
         if ($user['role'] == 'admin') {
             header("Location: ../dashboard/admin.php");
         } else {
-            header("Location: ../pages/clientPage.php");
+            header("Location: ../glowing/index.php");
         }
     } else {
         header("Location: ../index.php?msg=1");
