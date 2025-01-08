@@ -73,7 +73,6 @@ $product = new product($pdo);
 </div>
 
 <style>
-
     .popup {
         display: none;
         position: fixed;

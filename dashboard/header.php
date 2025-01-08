@@ -17,7 +17,7 @@
         <div class="side-content">
             <div class="profile">
                 <div class="profile-img bg-img" style="background-image: url(img/3.jpeg)"></div>
-                <h4>David Green</h4>
+                <h4>Admina</h4>
                 <small>Administrator</small>
             </div>
 
@@ -70,16 +70,6 @@
                     <label for="">
                         <span class="las la-search"></span>
                     </label>
-                    
-                    <div class="notify-icon">
-                        <span class="las la-envelope"></span>
-                        <span class="notify">4</span>
-                    </div>
-                    
-                    <div class="notify-icon">
-                        <span class="las la-bell"></span>
-                        <span class="notify">3</span>
-                    </div>
                     
                     <div class="user">
                         <div class="bg-img" style="background-image: url(img/1.jpeg)"></div>

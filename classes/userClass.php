@@ -40,12 +40,11 @@ class User {
                         <h4>$user[email]</h4>
                     </td>
                     <td>
-                        <form action='../dashboard/toggleAccount.php?id={$user['id_user']}' method='POST'>
-                            <input type='hidden' id='userId' name='userId' value='{$user['id_user']}'>
+                        <a href='../dashboard/toggleAccount.php?id={$user['id_user']}' >
                             <button type='submit' name='toggleAccount' class='toggle-btn' id='active'>
                                 $avtivation
                             </button>
-                        </form>
+                        </a>
                         <script>
                         </script>
                     </td>

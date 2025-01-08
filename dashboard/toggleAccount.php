@@ -2,7 +2,7 @@
 include '../classes/userClass.php';
 require_once '../config/config.php';
 
-if(isset($_POST['toggleAccount'])){
+if(isset($_GET['id'])){
     $db = new database;
     $pdo=$db->getConn();
 

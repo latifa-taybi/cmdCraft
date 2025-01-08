@@ -7,10 +7,7 @@ $db = new Database();
 $pdo = $db->getConn();
 $product = new product($pdo);
 $productEdit = $product->getProductId($_GET['id']);
-if ($productEdit) {
-    echo $productEdit['id_product'];
-    echo $productEdit['description']; 
-}
+
 
 ?>
 
@@ -45,7 +42,6 @@ if ($productEdit) {
 </main>
 
 <?php
-
 if(isset($_POST['editProduct'])){
     $productId = $_POST['productId'];
     $productName = $_POST['productName'];
@@ -56,7 +52,6 @@ if(isset($_POST['editProduct'])){
     $product->editProduct($productId, $productName, $productDescription, $productPrice, $productQuantity, $productImage);
     header('Location: ../dashboard/productList.php');
 }
-
 ?>
 
 <style>

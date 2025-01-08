@@ -1,26 +1,32 @@
 <?php
-class product {
+
+class product
+{
     private $pdo;
 
-    public function __construct($pdo){
+    public function __construct($pdo)
+    {
         $this->pdo = $pdo;
     }
 
-    public function getProduct(){
+    public function getProduct()
+    {
         $stmt = $this->pdo->prepare("SELECT id_product, name, description, prix, quantite, image FROM product WHERE deleted=0");
         $stmt->execute();
         return $stmt->fetchAll();
     }
 
-    public function getProductId($id){
+    public function getProductId($id)
+    {
         $stmt = $this->pdo->prepare("SELECT * FROM product WHERE id_product = :id_product");
         $stmt->execute([
-            'id_product'=>$id
+            'id_product' => $id
         ]);
         return $stmt->fetch();
     }
 
-    public function diplayProduct(){
+    public function diplayProduct()
+    {
         $products = $this->getProduct();
         foreach ($products as $product) {
             echo "
@@ -40,7 +46,7 @@ class product {
                         <h4>$product[description]</h4>
                     </td>
                     <td>
-                        <h4>$product[prix]</h4>
+                        <h4>$product[prix]$</h4>
                     </td>
                     <td>
                         <h4>$product[quantite]</h4>
@@ -57,7 +63,8 @@ class product {
         }
     }
 
-    public function editProduct($id_product, $name, $description, $prix, $quantite, $image){
+    public function editProduct($id_product, $name, $description, $prix, $quantite, $image)
+    {
         $stmt = $this->pdo->prepare("UPDATE product SET name = :name, description = :description, prix = :prix, quantite = :quantite, image = :image WHERE id_product = :id_product");
         return $stmt->execute([
             'id_product' => $id_product,
@@ -75,13 +82,33 @@ class product {
         $stmt->execute([
             ':id_product' => $id
         ]);
-    }    
+    }
 
-    public function countProduct(){
+    public function countProduct()
+    {
         $stmt = $this->pdo->prepare("SELECT COUNT(*) AS total_produit FROM product WHERE deleted=0");
         $stmt->execute();
         $result = $stmt->fetch();
         return $result['total_produit'];
     }
+
+
+    public function productUser()
+    {
+        $products = $this->getProduct();
+        foreach ($products as $product) {
+            echo "
+                <div class='product-container'>
+                    <div class='product' id='product1'>
+                        <img src='$product[image]' alt='Produit 1'>
+                        <h3>$product[name]</h3>
+                        <p class='price'>$product[prix]$</p>
+                        <a class='btnAdd' href='../glowing/addPanier.php?id=$product[id_product]'>
+                            <button class='add-to-cart-btn' ><i class='fas fa-cart-plus'></i> Ajouter au panier</button>
+                        </a>
+                        
+                    </div>
+                </div>";
+        }
+    }
 }
-?>
