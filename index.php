@@ -23,17 +23,6 @@ if(isset($_GET['msg'])){
 <body>
     <div class="wrapper">
     <nav class="nav">
-        <div class="nav-logo">
-            <p>LOGO .</p>
-        </div>
-        <div class="nav-menu" id="navMenu">
-            <ul>
-                <li><a href="#" class="link active">Home</a></li>
-                <li><a href="#" class="link">Blog</a></li>
-                <li><a href="#" class="link">Services</a></li>
-                <li><a href="#" class="link">About</a></li>
-            </ul>
-        </div>
         <div class="nav-button">
             <button class="btn white-btn" id="loginBtn" onclick="login()">Sign In</button>
             <button class="btn" id="registerBtn" onclick="register()">Sign Up</button>
@@ -64,15 +53,6 @@ if(isset($_GET['msg'])){
             <div class="input-box">
                 <input type="submit"  name="login" class="submit" value="Sign In">
             </div>
-            <div class="two-col">
-                <div class="one">
-                    <input type="checkbox" id="login-check">
-                    <label for="login-check"> Remember Me</label>
-                </div>
-                <div class="two">
-                    <label><a href="#">Forgot password?</a></label>
-                </div>
-            </div>
         </form>
 
         <!------------------- registration form -------------------------->
@@ -95,15 +75,6 @@ if(isset($_GET['msg'])){
             </div>
             <div class="input-box">
                 <input type="submit"  name="registre" class="submit" value="Register">
-            </div>
-            <div class="two-col">
-                <div class="one">
-                    <input type="checkbox" id="register-check">
-                    <label for="register-check"> Remember Me</label>
-                </div>
-                <div class="two">
-                    <label><a href="#">Terms & conditions</a></label>
-                </div>
             </div>
         </form>
     </div>

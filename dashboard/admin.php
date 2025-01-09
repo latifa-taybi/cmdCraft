@@ -29,6 +29,7 @@ $client = $users->countClient();
 $product = new product($pdo);
 $produit = $product->countProduct();
 
+
 ?>
             
             <div class="page-content">
@@ -42,35 +43,26 @@ $produit = $product->countProduct();
                         </div>
                         <div class="card-progress">
                             <small>Clients</small>
-                            <div class="card-indicator">
-                                <div class="indicator one" style="width: 60%"></div>
-                            </div>
                         </div>
                     </div>
 
                     <div class="card">
                         <div class="card-head">
                             <h2><?php echo $produit ?></h2>
-                            <span class="las la-eye"></span>
+                            <span class="las la-cogs"></span>
                         </div>
                         <div class="card-progress">
                             <small>Produits</small>
-                            <div class="card-indicator">
-                                <div class="indicator two" style="width: 80%"></div>
-                            </div>
                         </div>
                     </div>
 
                     <div class="card">
                         <div class="card-head">
-                            <h2>30</h2>
+                            <h2><?php echo '0'?></h2>
                             <span class="las la-shopping-cart"></span>
                         </div>
                         <div class="card-progress">
                             <small>Commandes</small>
-                            <div class="card-indicator">
-                                <div class="indicator three" style="width: 65%"></div>
-                            </div>
                         </div>
                     </div>
                 </div>

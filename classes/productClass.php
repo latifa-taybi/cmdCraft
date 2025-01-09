@@ -6,6 +6,7 @@ class product
 
     public function __construct($pdo)
     {
+
         $this->pdo = $pdo;
     }
 
@@ -22,7 +23,9 @@ class product
         $stmt->execute([
             'id_product' => $id
         ]);
-        return $stmt->fetch();
+        $data =  $stmt->fetch();
+        print_r($data);
+        return $data;
     }
 
     public function diplayProduct()
